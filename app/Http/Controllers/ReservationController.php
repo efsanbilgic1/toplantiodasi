@@ -18,11 +18,11 @@ class ReservationController extends Controller
     {
         Reservation::create([
             'meeting_room_id' => $request->meeting_room_id,
-            'user_id' => 1, // şimdilik sabit kullanıcı
+            'user_id' => auth()->id(), // şimdilik sabit kullanıcı
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
         ]);
 
-        return redirect('/rooms');
+        return redirect('/dashboard');
     }
 }
